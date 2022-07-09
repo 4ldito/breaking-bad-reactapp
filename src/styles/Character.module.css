@@ -1,0 +1,15 @@
+.name {
+    font-size: 1.3rem;
+    margin: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.326);
+    padding: 1rem 4rem 1rem 4rem;
+}
+
+.name:hover {
+    background-color: 	#006400;
+    transition: background 1s;
+}
+
+.container {
+    color: white;
+}

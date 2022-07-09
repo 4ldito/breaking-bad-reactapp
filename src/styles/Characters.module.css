@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.charactersList {
+    margin-top: 2rem;
+    width: 80%;
+    text-align: center;
+}
+
+.charactersCointaner {
+    display: grid;
+    grid-template-columns: 25rem 25rem 25rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.loading {
+    text-align: center;
+}
+
+.containerLoading {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.input {
+    padding: 0.5rem;
+}

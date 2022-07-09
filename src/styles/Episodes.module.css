@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listContainer {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+
+.list {
+
+    list-style: none;
+    overflow: hidden;
+    background-color: #26613B;
+
+}
+
+.seasonNumberContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(10, 112, 48);
+    border: 1px solid #c8c8c8;
+    padding: 1rem;
+    align-items: center;
+}
+
+.seasonNumberContainer:hover {
+    cursor: pointer;
+}
+
+.numSeason {
+    font-size: 1.4rem;
+}
+
+.chapters {
+    -moz-transition: height .5s;
+    -ms-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    height: 0;
+    overflow: hidden;
+}
+
+.icon {
+    transition: .3s;
+}
+
+.title {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.scale {
+    max-height: 500px;
+    transition: max-height 0.7s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
