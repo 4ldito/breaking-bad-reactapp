@@ -9,7 +9,7 @@ const CharacterDetails = () => {
     const { id } = useParams();
     const content = getAllCharacters();
 
-    const lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati repellendus facilis unde commodi inventore quasi quod. Blanditiis ut harum aperiam labore, minus cumque vel corporis! Hic beatae in dolor? Molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptates harum ad fuga ipsa mollitia temporibus nemo, hic maiores esse quibusdam ipsum, labore ab! Veritatis consectetur quia soluta quo praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. In nam quidem qui facere nostrum iure dolorum, architecto velit rem consequatur vero labore placeat ratione excepturi blanditiis eaque quod. Quia, eius.';
+    const lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati repellendus facilis unde commodi inventore quasi quod. Blanditiis ut harum aperiam labore, minus cumque vel corporis! Hic beatae in dolor? Molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptates harum ad fuga ipsa mollitia temporibus nemo, hic maiores.';
 
     useEffect(() => {
         if (Array.isArray(content)) {
@@ -26,16 +26,17 @@ const CharacterDetails = () => {
                     <div className={style.cardContainer}>
                         <div className={style.card}>
                             <h3 className={style.name}>{actualChar.name}</h3>
-                            <p>{actualChar.nickname}</p>
-                            <div className={style.occupationContainer}>
-                                {actualChar.occupation.map(occ => <p key={occ}>{occ}</p>)}
-                            </div>
+
                             <img src={actualChar.img} alt={`${actualChar.name} image`} />
                         </div>
                     </div>
 
                     <div className={style.aboutContainer}>
                         <h3 className={style.name}>About</h3>
+                        <p className={style.nickname}>{actualChar.nickname}</p>
+                        <div className={style.occupationContainer}>
+                            {actualChar.occupation.map(occ => <p key={occ}>{occ}</p>)}
+                        </div>
                         <p className={style.textAbout}>{lorem}</p>
                     </div>
                 </div>

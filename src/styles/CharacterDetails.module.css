@@ -64,6 +64,10 @@
     background-color: #0b0c0b;
 }
 
+.nickname, .occupationContainer {
+    text-align: center;
+}
+
 p.textAbout {
     padding: 0.8rem 1.1rem;
 }

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { initialState } from './../reducer';
 import axios from 'axios';
 
-const RANDOM_QUOTE_URL = 'https://www.breakingbadapi.com/api/quote/random/';
+const RANDOM_QUOTE_URL = 'https://www.breakingbadapi.com/api/quotes/';
 
 export const fetchQuoteRandom = createAsyncThunk('quotes/randomQuote', async () => {
     const response = await axios.get(RANDOM_QUOTE_URL);
