@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchEpisodes, initialState } from './../reducer';
 
 export const episodesSlice = createSlice({
