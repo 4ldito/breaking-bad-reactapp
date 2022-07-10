@@ -1,5 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCharacters, fetchQuoteRandom, initialState } from './../reducer';
+import { initialState } from './../reducer';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const ALL_CHARACTERS_URL = 'https://www.breakingbadapi.com/api/characters/';
+
+export const fetchCharacters = createAsyncThunk('characters/allCharacters', async () => {
+    const response = await axios.get(ALL_CHARACTERS_URL)
+    return response.data
+});
+
+export const fetchCharacterById = createAsyncThunk('characters/allCharacters', async (id) => {
+    const response = await axios.get(`${ALL_CHARACTERS_URL}${id}`)
+    return response.data
+});
 
 export const charactersSlice = createSlice({
     name: 'characters',
@@ -18,10 +32,11 @@ export const charactersSlice = createSlice({
                 state.status = 'failed'
                 state.error = action.error.message
             })
-            // Quote
-            .addCase(fetchQuoteRandom.fulfilled, (state, action) => {
-                state.quoteLoaded = true;
-                state.quote = action.payload;
-            })
     }
 });
+
+//CHARACACTERS
+export const selectAllCharacters = (state) => state.characters.characters;
+export const getCharactersStatus = (state) => state.characters.status;
+export const getCharactersError = (state) => state.characters.error;
+

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { selectAllCharacters, getCharactersStatus, getCharactersError, fetchCharacters } from '../redux/reducer';
 import { useEffect } from 'react';
+import { fetchCharacters, getCharactersError, getCharactersStatus, selectAllCharacters } from '../redux/reducers/characters';
 
 export const getAllCharacters = () => {
     const dispatch = useDispatch();

@@ -1,5 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchEpisodes, initialState } from './../reducer';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { initialState } from './../reducer';
+import axios from "axios";
+
+const ALL_EPISODES_URL = 'https://www.breakingbadapi.com/api/episodes?series=Breaking Bad';
+
+export const fetchEpisodes = createAsyncThunk('episodes/allEpisodes', async () => {
+    const response = await axios.get(ALL_EPISODES_URL);
+    return response.data
+});
 
 export const episodesSlice = createSlice({
     name: 'episodes',
@@ -30,3 +38,9 @@ export const episodesSlice = createSlice({
             })
     }
 });
+
+
+export const allEpisodes = (state) => state.episodes.episodes.allEpisodes;
+export const getEpisodesStatus = (state) => state.episodes.episodes.status;
+export const getEpisodesError = (state) => state.episodes.episodes.error;
+export const allEpisodesBySeason = (state) => state.episodes.episodes.bySeason;

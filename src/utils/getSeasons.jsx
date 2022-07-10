@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { allEpisodesBySeason, getEpisodesStatus, getEpisodesError, fetchEpisodes } from '../redux/reducer';
+
 import { useDispatch, useSelector } from 'react-redux';
+import { allEpisodesBySeason, fetchEpisodes, getEpisodesError, getEpisodesStatus } from './../redux/reducers/episodes';
 
 export const getSeasons = () => {
     const dispatch = useDispatch();
@@ -11,7 +12,6 @@ export const getSeasons = () => {
     const error = useSelector(getEpisodesError);
 
     useEffect(() => {
-        
         if (status === 'idle') dispatch(fetchEpisodes());
 
     }, [status]);
@@ -19,5 +19,4 @@ export const getSeasons = () => {
     if (status === 'succeeded') return seasons;
     else if (status === 'failed') return error;
     else return false;
-
 }
