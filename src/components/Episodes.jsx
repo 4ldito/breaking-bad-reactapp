@@ -10,7 +10,7 @@ const Episodes = () => {
   const handleOnClick = (e) => {
     e.preventDefault();
     let target = e.target;
-    if (target.innerText.includes('Temporada') || target.tagName === 'I') {
+    if (target.innerText.includes('Season') || target.tagName === 'I') {
       if (target.tagName === 'P' || target.tagName === 'I') { // esto es para que funcione también si apretamos en el tag P o en el tag I
         target = target.parentElement;
       }
@@ -27,7 +27,7 @@ const Episodes = () => {
 
   return (
     <div className={style.container}>
-      <h2 className='title'>Lista de episodios</h2>
+      <h2 className='title'>Episode List</h2>
 
       <ul className={style.listContainer}>
         {seasons?.length > 0 ?
@@ -36,7 +36,7 @@ const Episodes = () => {
               return (
                 <li key={i} className={style.list}>
                   <div onClick={handleOnClick} className={style.seasonNumberContainer}>
-                    <p className={style.numSeason}>Temporada {i + 1} </p><i className={`fas fa-chevron-down ${style.icon}`}></i>
+                    <p className={style.numSeason}>Season {i + 1} </p><i className={`fas fa-chevron-down ${style.icon}`}></i>
                   </div>
 
                   <div className={style.chapters}>

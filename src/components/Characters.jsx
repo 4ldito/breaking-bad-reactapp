@@ -8,15 +8,13 @@ import Loading from './Loading';
 
 const Characters = () => {
   const characters = getAllCharacters();
-  const [filterCharacters, setFilterCharacters] = useState({ succeess: [], error: ''});
+  const [filterCharacters, setFilterCharacters] = useState({ succeess: [], error: false });
   const ref = useRef();
 
-  const handleOnChange = (e) => {
-    const value = e.target.value.toLowerCase();
-    if (value === '') setFilterCharacters({ succeess: [], error: ''});
-    else {
-      setFilterCharacters({ succeess: characters.filter(c => c.name.toLowerCase().includes(value)), error: ''});
-    }
+  const handleOnChange = () => {
+    const value = ref.current.value.toLowerCase().trim();
+
+    setFilterCharacters({ ...filterCharacters, succeess: characters.filter(c => c.name.toLowerCase().includes(value)) });
   };
 
   const handleNotFound = () => {
@@ -26,22 +24,22 @@ const Characters = () => {
   useEffect(() => {
     if (filterCharacters.succeess.length === 0 && ref.current.value !== '') {
       setFilterCharacters({ ...filterCharacters, error: 'No se encontraron =(' });
-      console.log(filterCharacters);
+    } else {
+      setFilterCharacters({ ...filterCharacters, error: false });
     }
   }, [filterCharacters.succeess]);
 
   return (
     <div className={style.container}>
-      <h2 className='title'>Lista de personajes</h2>
+      <h2 className='title'>Characters List</h2>
       <input ref={ref} className={style.input} type="text" onChange={handleOnChange} placeholder='Search Character' />
 
-      <div className={characters ? style.charactersCointaner : style.containerLoading}>
-        {filterCharacters.error ? handleNotFound() :filterCharacters.succeess.length > 0 ? renderCharacters(filterCharacters.succeess) //
-          : characters ? renderCharacters(characters) : <Loading/>
-        }
-      </div>
-
-
+      {filterCharacters.error ? handleNotFound() :
+        <div className={characters ? style.charactersCointaner : style.containerLoading}>
+          {filterCharacters.succeess.length > 0 ? renderCharacters(filterCharacters.succeess) :
+            characters ? renderCharacters(characters) :
+              <Loading />}
+        </div>}
     </div>
   )
 }

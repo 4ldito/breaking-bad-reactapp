@@ -8,9 +8,9 @@ export const getRandomQuote = () => {
     const quoteLoaded = useSelector(getQuoteLoaded);
 
     useEffect(() => {
-        if (!quoteLoaded) {
-            dispatch(fetchQuoteRandom());
-        }
+        
+        if (!quoteLoaded)  dispatch(fetchQuoteRandom()); 
+
     }, []);
 
 

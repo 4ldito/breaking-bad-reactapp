@@ -10,17 +10,13 @@ export const getAllCharacters = () => {
     const error = useSelector(getCharactersError);
 
     useEffect(() => {
-        if (charactersStatus === 'idle') {
-            dispatch(fetchCharacters());
-        }
+        
+        if (charactersStatus === 'idle') dispatch(fetchCharacters());
+        
     }, [charactersStatus]);
 
-    if (charactersStatus === 'succeeded') {
-        return characters;
-    } else if (charactersStatus === 'failed') {
-        return error;
-    } else {
-        return false;
-    }
+    if (charactersStatus === 'succeeded') return characters;
+    else if (charactersStatus === 'failed') return error
+    else return false;
 }
 

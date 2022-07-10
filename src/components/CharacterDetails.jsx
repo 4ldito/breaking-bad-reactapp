@@ -18,12 +18,12 @@ const CharacterDetails = () => {
 
     return (
         <div className={style.container}>
-            <h2 className='title'>Detalles del personaje </h2>
+            <h2 className='title'>Character Details</h2>
             {actualChar ?
                 <div className={style.cardContainer}>
                     <div className={style.card}>
                         <p className={style.name}>{actualChar.name}</p>
-                        <p>Mejor conocido como: {actualChar.nickname}</p>
+                        <p>Better know as: {actualChar.nickname}</p>
                         <img src={actualChar.img} alt={`${actualChar.name} image`} />
                     </div>
 
