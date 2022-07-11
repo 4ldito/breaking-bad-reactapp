@@ -25,6 +25,9 @@ export const fetchRandomDeath = createAsyncThunk('deaths/randomDeath', async () 
 export const deathsSlice = createSlice({
     name: 'deaths',
     initialState,
+    reducer() {
+        
+    },
     extraReducers(builder) {
         builder
             .addCase(fetchAllDeaths.pending, (state) => {

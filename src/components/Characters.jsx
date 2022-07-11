@@ -11,8 +11,6 @@ const Characters = () => {
   const [filterCharacters, setFilterCharacters] = useState({ succeess: [], error: false });
   const ref = useRef();
 
-  console.log('se monto');
-
   const handleOnChange = () => {
     const value = ref.current.value.toLowerCase().trim();
     setFilterCharacters({ ...filterCharacters, succeess: characters.filter(c => c.name.toLowerCase().includes(value)) });

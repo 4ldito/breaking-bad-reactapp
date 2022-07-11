@@ -4,6 +4,7 @@ import { allDeaths, countDeaths, deathError, deathsStatus, fetchAllDeaths, fetch
 
 export const getAllDeaths = () => {
     const dispatch = useDispatch();
+    
     const deaths = useSelector(allDeaths);
     const deathRandom = useSelector(getRandomDeath);
     const count = useSelector(countDeaths)

@@ -1,69 +1,71 @@
-import { useEffect, useState } from 'react';
-import { getAllDeaths } from './../utils/getAllDeaths';
 import Loading from './Loading';
+import { useDispatch, useSelector } from 'react-redux';
+import { allDeaths, countDeaths, deathsStatus, fetchAllDeaths, fetchCountDeaths, fetchRandomDeath, getRandomDeath } from '../redux/reducers/deaths';
 
 import style from '../styles/Deaths.module.css';
 
 const Deaths = () => {
 
-  const { deaths, count, characters, deathRandom } = getAllDeaths();
-  const [actualDeath, setActualDeath] = useState(null);
+  const dispatch = useDispatch();
 
+  
+  const deaths = useSelector(allDeaths);
+  const deathRandom = useSelector(getRandomDeath);
+  const count = useSelector(countDeaths)
+  const status = useSelector(deathsStatus);
+  
+  console.log(deathRandom);
+  const infoDeaths = {};
 
-  console.log(deathRandom)
-
-  // cause: "Shot in close range."
-  // death: "Cartel Assassins"
-  // death_id: 28
-  // episode: 4
-  // last_words: "Unknown"
-  // number_of_deaths: 2
-  // responsible: "Mike Ehrmantraut"
-  // season: 4
-
-  const handeOnClick = (e) => {
-    e.preventDefault();
-    const { deaths, count, characters, deathRandom } = getAllDeaths();
+  if (status === 'idle') {
+    dispatch(fetchCountDeaths());
+    dispatch(fetchAllDeaths());
+    dispatch(fetchRandomDeath());
   }
 
-  useEffect(() => {
-    if (deaths) setActualDeath(deaths[1]);
-    // console.log('infoDeaths', count, deaths);
-    // console.log('characters', characters);
-  }, [deaths])
+  infoDeaths.countInfo = count;
+  infoDeaths.deathsInfo = deaths;
+  infoDeaths.deathRandomInfo = deathRandom;
+
+  const { countInfo, deathRandomInfo } = infoDeaths;
+  const handeOnClick = (e) => {
+    e.preventDefault();
+    dispatch(fetchRandomDeath());
+  }
 
   return (
     <div className={style.container}>
       <div className={style.containerTitle}>
         <h2 className={`title ${style.titleDeaths}`}>Deaths</h2>
       </div>
-      {actualDeath ?
+      {deaths.length > 0 ?
         <>
           <p>Total Deaths</p>
-          <p><span className={style.deathCount}>{count}</span></p>
+          <p><span className={style.deathCount}>{countInfo}</span></p>
           <div className={style.containerTitle}>
             <h2 className={`title`}>Random Death</h2>
           </div>
           <div className={style.randomDeath}>
             <div className={style.cardContainer}>
               <div className="imgContainer">
-                <img className={style.img} src={deathRandom.img} alt={`${deathRandom.name} image`} />
+                <img className={style.img} src={deathRandomInfo.img} alt={`${deathRandomInfo.name} image`} />
               </div>
               <div className={style.infoContainer}>
-                <h4 className={style.nameDeath}>{deathRandom.death}</h4>
+                <h4 className={style.nameDeath}>{deathRandomInfo.death}</h4>
                 <div className={style.causeDeath}>
-                  <span>{deathRandom.cause}</span>
+                  <span>{deathRandomInfo.cause}</span>
                 </div>
                 <div className={style.lastWords}>
                   <p>Last Words</p>
-                  <span className={style.lastWords}>"{deathRandom.last_words}"</span>
+                  <span className={style.lastWords}>"{deathRandomInfo.last_words}"</span>
                 </div>
               </div>
             </div>
           </div>
-          <a onClick={handeOnClick} href="#" className='btn' >Click to get a Random Death</a>
+          <a onClick={handeOnClick} href="#" className={`btn ${style.btn}`} >Click to get a Random Death</a>
         </>
         : <Loading />}
+
     </div>
   )
 }
