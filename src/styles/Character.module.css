@@ -4,6 +4,8 @@
     border: 1px solid rgba(255, 255, 255, 0.326);
     padding: 1rem 4rem 1rem 4rem;
     border-radius: 20px;
+    display: block;
+    margin: 0;
 }
 
 .name:hover {

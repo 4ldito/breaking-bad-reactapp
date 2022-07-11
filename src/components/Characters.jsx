@@ -11,9 +11,10 @@ const Characters = () => {
   const [filterCharacters, setFilterCharacters] = useState({ succeess: [], error: false });
   const ref = useRef();
 
+  console.log('se monto');
+
   const handleOnChange = () => {
     const value = ref.current.value.toLowerCase().trim();
-
     setFilterCharacters({ ...filterCharacters, succeess: characters.filter(c => c.name.toLowerCase().includes(value)) });
   };
 
@@ -29,6 +30,11 @@ const Characters = () => {
     }
   }, [filterCharacters.succeess]);
 
+  useEffect(() => {
+    ref.current.value = '';
+
+  }, []);
+
   return (
     <div className={style.container}>
       <h2 className='title'>Characters List</h2>
@@ -37,8 +43,8 @@ const Characters = () => {
       {filterCharacters.error ? handleNotFound() :
         <div className={characters ? style.charactersCointaner : style.containerLoading}>
           {filterCharacters.succeess.length > 0 ? renderCharacters(filterCharacters.succeess) :
-            characters ? renderCharacters(characters) :
-              <Loading />}
+            (characters && ref.current?.value === "") ? renderCharacters(characters) :
+            !characters ? <Loading /> : ''}
         </div>}
     </div>
   )

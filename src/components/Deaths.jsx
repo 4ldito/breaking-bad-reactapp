@@ -6,8 +6,11 @@ import style from '../styles/Deaths.module.css';
 
 const Deaths = () => {
 
-  const { deaths, count, characters } = getAllDeaths();
+  const { deaths, count, characters, deathRandom } = getAllDeaths();
   const [actualDeath, setActualDeath] = useState(null);
+
+
+  console.log(deathRandom)
 
   // cause: "Shot in close range."
   // death: "Cartel Assassins"
@@ -20,11 +23,12 @@ const Deaths = () => {
 
   const handeOnClick = (e) => {
     e.preventDefault();
+    const { deaths, count, characters, deathRandom } = getAllDeaths();
   }
 
   useEffect(() => {
     if (deaths) setActualDeath(deaths[1]);
-    console.log('infoDeaths', count, deaths);
+    // console.log('infoDeaths', count, deaths);
     // console.log('characters', characters);
   }, [deaths])
 
@@ -38,19 +42,23 @@ const Deaths = () => {
           <p>Total Deaths</p>
           <p><span className={style.deathCount}>{count}</span></p>
           <div className={style.containerTitle}>
-            <h2 className={`title`}>Iconics Deaths</h2>
+            <h2 className={`title`}>Random Death</h2>
           </div>
-          <div className={style.iconicsDeaths}>
-            <div className={style.infoContainer}>
-              <p>{actualDeath.death}</p>
-            </div>
-
-            <div className={style.infoContainer}>
-              <p>{actualDeath.death}</p>
-            </div>
-
-            <div className={style.infoContainer}>
-              <p>{actualDeath.death}</p>
+          <div className={style.randomDeath}>
+            <div className={style.cardContainer}>
+              <div className="imgContainer">
+                <img className={style.img} src={deathRandom.img} alt={`${deathRandom.name} image`} />
+              </div>
+              <div className={style.infoContainer}>
+                <h4 className={style.nameDeath}>{deathRandom.death}</h4>
+                <div className={style.causeDeath}>
+                  <span>{deathRandom.cause}</span>
+                </div>
+                <div className={style.lastWords}>
+                  <p>Last Words</p>
+                  <span className={style.lastWords}>"{deathRandom.last_words}"</span>
+                </div>
+              </div>
             </div>
           </div>
           <a onClick={handeOnClick} href="#" className='btn' >Click to get a Random Death</a>

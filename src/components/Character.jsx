@@ -7,7 +7,7 @@ const Character = ({ id, name, img, portrayed }) => {
   return (
     <div className={style.container}>
       <Link to={`./${id}`} >
-        <p className={style.name}>{name}</p>
+        <span className={style.name}>{name}</span>
       </Link>
     </div>
   )
