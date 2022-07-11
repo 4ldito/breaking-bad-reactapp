@@ -30,7 +30,25 @@
 }
 
 .input {
-    padding: 0.5rem 1rem;
+    padding: 1rem 2.5rem;
     border-radius: 20px;
     border: 2px solid black;
+
+}
+
+.inputContain {
+    position: relative;
+}
+
+.glass {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 17px;
+    left: 12px;
+}
+
+.dontFound {
+    margin-top: 30px;
+    font-size: 1.5rem;
 }
