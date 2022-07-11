@@ -43,3 +43,7 @@ a {
 .btn:hover {
     background-color: rgb(5, 64, 27);
 }
+
+img {
+    user-select: none;
+}

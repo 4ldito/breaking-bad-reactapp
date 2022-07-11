@@ -9,21 +9,26 @@
 
 .titleDeaths {
     display: inline-block;
-    border-bottom: 1px solid white;
-    width: 1000px;
 }
 
 .deathCount {
     color: red;
     font-size: 2rem;
-    line-height: 1.9;
+
 }
 
-.iconicsDeaths {
+.totalDeathsContainer{
+    padding: 1rem 3rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: #0b0c0b;
+}
+
+/* .iconicsDeaths {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 5rem;
-}
+} */
 
 .cardContainer {
     border: 2px solid #fff;
@@ -34,6 +39,7 @@
     grid-template-columns: 1fr 1fr;
     line-height: 0;
     width: 800px;
+    background-color: #0b0c0b;
 }
 
 .img {
@@ -43,7 +49,7 @@
 }
 
 .infoContainer{
-    line-height: 2;
+    line-height: 1.5;
 }
 
 .nameDeath {
@@ -54,15 +60,37 @@
 }
 
 .causeDeath { 
+    border-top: 1px solid white;
     background-color: #075116;
     padding: 1rem;
 }
 
-.lastWords {
-    background-color: #0b0c0b;
+.lastWordsContainer {
     padding: 1rem;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
 }
 
 .btn {
     margin-bottom: 4rem;
+}
+
+.responsibleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.span {
+    padding: 0.3rem;
+}
+
+.lastWordsSpan {
+    color: aqua;
+}
+
+.responsibleSpan {
+    color: #de1313;
 }

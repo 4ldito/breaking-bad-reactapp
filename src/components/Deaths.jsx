@@ -8,12 +8,12 @@ const Deaths = () => {
 
   const dispatch = useDispatch();
 
-  
+
   const deaths = useSelector(allDeaths);
   const deathRandom = useSelector(getRandomDeath);
   const count = useSelector(countDeaths)
   const status = useSelector(deathsStatus);
-  
+
   console.log(deathRandom);
   const infoDeaths = {};
 
@@ -40,8 +40,10 @@ const Deaths = () => {
       </div>
       {deaths.length > 0 ?
         <>
-          <p>Total Deaths</p>
-          <p><span className={style.deathCount}>{countInfo}</span></p>
+          <div className={style.totalDeathsContainer}>
+            <p>Total Deaths</p>
+            <p><span className={style.deathCount}>{countInfo}</span></p>
+          </div>
           <div className={style.containerTitle}>
             <h2 className={`title`}>Random Death</h2>
           </div>
@@ -55,9 +57,13 @@ const Deaths = () => {
                 <div className={style.causeDeath}>
                   <span>{deathRandomInfo.cause}</span>
                 </div>
-                <div className={style.lastWords}>
+                <div className={style.lastWordsContainer}>
                   <p>Last Words</p>
-                  <span className={style.lastWords}>"{deathRandomInfo.last_words}"</span>
+                  <span className={`${style.span} ${style.lastWordsSpan}`}>"{deathRandomInfo.last_words}"</span>
+                </div>
+                <div className={style.responsibleContainer}>
+                  <p>Responsible</p>
+                  <span className={`${style.span} ${style.responsibleSpan}`}>{deathRandomInfo.responsible}</span>
                 </div>
               </div>
             </div>
