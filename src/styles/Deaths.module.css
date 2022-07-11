@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.infoContainer {
+    border: 1px solid #fff;
+    margin-bottom: 3rem;
+    padding: 1rem 5rem;
+    border-radius: 5000px;
+}
+
+.titleDeaths {
+    display: inline-block;
+    border-bottom: 1px solid white;
+    width: 1000px;
+}
+
+.deathCount {
+    color: red;
+    font-size: 2rem;
+}
+
+.iconicsDeaths {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}

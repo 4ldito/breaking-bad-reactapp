@@ -6,7 +6,7 @@ import axios from "axios";
 const ALL_CHARACTERS_URL = 'https://www.breakingbadapi.com/api/characters/';
 
 export const fetchCharacters = createAsyncThunk('characters/allCharacters', async () => {
-    const response = await axios.get(ALL_CHARACTERS_URL)
+    const response = await axios.get(ALL_CHARACTERS_URL);
     return response.data
 });
 

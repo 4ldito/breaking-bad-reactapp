@@ -6,7 +6,6 @@ import style from '../styles/Home.module.css';
 
 const Home = () => {
   const quotes = getRandomQuote();
-  console.log(quotes);
   const [quote, setQuote] = useState(null);
 
   const handeOnClick = (e) => {
@@ -25,7 +24,7 @@ const Home = () => {
       <p className={style.quote}>{
         quote? `"${quote.quote}" - ${quote.author}` : '...'
       }</p>
-      <a href="#" className={style.btn} onClick={handeOnClick}>Random Quote</a>
+      <a href="#" className='btn' onClick={handeOnClick}>Random Quote</a>
     </div>
   )
 }

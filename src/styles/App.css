@@ -28,3 +28,16 @@ a {
 .title {
     font-size: 2.5rem;
 }
+
+.btn{
+    background-color: rgb(10, 112, 48);
+    padding: 1rem 2.3rem;
+    border-radius: 5000px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    border: 1px solid #fff;
+}
+
+.btn:hover {
+    background-color: rgb(5, 64, 27);
+}

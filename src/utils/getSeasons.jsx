@@ -11,10 +11,8 @@ export const getSeasons = () => {
     const status = useSelector(getEpisodesStatus);
     const error = useSelector(getEpisodesError);
 
-    useEffect(() => {
-        if (status === 'idle') dispatch(fetchEpisodes());
 
-    }, [status]);
+    if (status === 'idle') dispatch(fetchEpisodes());
 
     if (status === 'succeeded') return seasons;
     else if (status === 'failed') return error;

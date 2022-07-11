@@ -12,8 +12,8 @@ export const initialState = {
         error: null
     },
     deaths: {
+        allDeaths: [],
         countDeaths: 0,
-        randomDeath: {},
         status: 'idle',
         error: null
     }

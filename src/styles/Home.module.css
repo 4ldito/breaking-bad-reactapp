@@ -15,14 +15,3 @@
     padding-top: 0.5rem;
 }
 
-.btn{
-    background-color: rgb(10, 112, 48);
-    padding: 1rem 2.3rem;
-    border-radius: 5000px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: rgb(5, 64, 27);
-}
