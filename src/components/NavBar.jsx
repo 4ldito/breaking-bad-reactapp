@@ -7,10 +7,10 @@ const NavBar = () => {
     return (
         <div>
             <ul className={style.navbarUl}>
-                <li><Link to='/breaking-bad-reactapp/' className={style.btn}>Home</Link></li>
-                <li><Link to="/breaking-bad-reactapp/characters" className={style.btn}>Characters</Link></li>
-                <li><Link to="/breaking-bad-reactapp/episodes" className={style.btn}>Episodes</Link></li>
-                <li><Link to="/breaking-bad-reactapp/deaths" className={style.btn}>Deaths</Link></li>
+                <li><Link to='/' className={style.btn}>Home</Link></li>
+                <li><Link to="/characters" className={style.btn}>Characters</Link></li>
+                <li><Link to="/episodes" className={style.btn}>Episodes</Link></li>
+                <li><Link to="/deaths" className={style.btn}>Deaths</Link></li>
             </ul>
         </div>
     )
