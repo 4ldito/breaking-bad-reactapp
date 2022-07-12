@@ -8,8 +8,8 @@ export const renderCharacters = (characters) => {
                 <Character
                     id={character.char_id}
                     name={character.name}
-                    img={character.img}
-                    portrayed={character.portrayed}
+                    // img={character.img}
+                    // portrayed={character.portrayed}
                     key={character.char_id}
                 />)
 

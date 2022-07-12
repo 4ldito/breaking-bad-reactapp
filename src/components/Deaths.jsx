@@ -8,14 +8,15 @@ const Deaths = () => {
 
   const dispatch = useDispatch();
 
-
   const deaths = useSelector(allDeaths);
   const deathRandom = useSelector(getRandomDeath);
   const count = useSelector(countDeaths)
   const status = useSelector(deathsStatus);
 
-  console.log(deathRandom);
-  const infoDeaths = {};
+  const handeOnClick = (e) => {
+    e.preventDefault();
+    dispatch(fetchRandomDeath());
+  }
 
   if (status === 'idle') {
     dispatch(fetchCountDeaths());
@@ -23,22 +24,18 @@ const Deaths = () => {
     dispatch(fetchRandomDeath());
   }
 
+  const infoDeaths = {};
   infoDeaths.countInfo = count;
   infoDeaths.deathsInfo = deaths;
   infoDeaths.deathRandomInfo = deathRandom;
-
   const { countInfo, deathRandomInfo } = infoDeaths;
-  const handeOnClick = (e) => {
-    e.preventDefault();
-    dispatch(fetchRandomDeath());
-  }
 
   return (
     <div className={style.container}>
       <div className={style.containerTitle}>
         <h2 className={`title ${style.titleDeaths}`}>Deaths</h2>
       </div>
-      {deaths.length > 0 ?
+      {Object.entries(deathRandomInfo).length !== 0 ?
         <>
           <div className={style.totalDeathsContainer}>
             <p>Total Deaths</p>

@@ -1,7 +1,6 @@
 @import url(./normalize.css);
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
 
-
 body {
     background-image: url('../img/bg.jpg');
     background-size: cover;
@@ -46,4 +45,8 @@ a {
 
 img {
     user-select: none;
+}
+
+.active {
+    color: aqua;
 }

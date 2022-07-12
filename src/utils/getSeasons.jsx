@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { allEpisodesBySeason, fetchEpisodes, getEpisodesError, getEpisodesStatus } from './../redux/reducers/episodes';
@@ -6,7 +5,6 @@ import { allEpisodesBySeason, fetchEpisodes, getEpisodesError, getEpisodesStatus
 export const getSeasons = () => {
     const dispatch = useDispatch();
 
-    // const episodes = useSelector(allEpisodes);
     const seasons = useSelector(allEpisodesBySeason);
     const status = useSelector(getEpisodesStatus);
     const error = useSelector(getEpisodesError);

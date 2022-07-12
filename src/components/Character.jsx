@@ -2,7 +2,7 @@ import React from 'react';
 import style from '../styles/Character.module.css';
 import { Link } from 'react-router-dom';
 
-const Character = ({ id, name, img, portrayed }) => {
+const Character = ({ id, name }) => {
 
   return (
     <div className={style.container}>
